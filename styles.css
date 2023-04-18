@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-bottom: 2px solid #333;
+}
+
+header h1 {
+    color: #333;
+}
+
+.loading-animation-wrapper {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-animation {
+    animation: rotate 1.5s linear infinite;
+    visibility: hidden;
+}
+
+.loading-animation.showVisibility {
+    visibility: visible;
+}
+
+.wordle-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.try {
+    display: flex;
+}
+
+.try-letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ccc;
+    margin: 7px;
+    font-size: 32px;
+}
+
+.try-letter.wrongWord {
+    animation-name: wrongWord;
+    animation-duration: 1s;
+}
+
+.title.rainbow {
+    animation: colors 5s linear infinite;
+    font-size: 50px;
+}
+
+@keyframes wrongWord {
+    0% {
+        border-color: #ccc;
+    }
+
+    50% {
+        border-color: crimson;
+    }
+
+    100% {
+        border-color: #ccc;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes colors {
+    0% {
+        color: red;
+    }
+
+    15% {
+        color: orange;
+    }
+
+    30% {
+        color: yellow;
+    }
+
+    45% {
+        color: green;
+    }
+
+    60% {
+        color: blue;
+    }
+
+    75% {
+        color: indigo;
+    }
+
+    90% {
+        color: violet;
+    }
+
+    100% {
+        color: red;
+    }
+}
