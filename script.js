@@ -92,16 +92,23 @@ function checkWordMatch() {
     for (let i = 0; i < myStrWord.length; i++) {
         currTryBlock.children[i].style.backgroundColor = '#888';
         currTryBlock.children[i].style.color = "white";
+        if (answerWord[i] === myStrWord[i].toLowerCase()) {
+            currTryBlock.children[i].style.backgroundColor = 'darkgreen';
+            wordCountObject[myStrWord[i].toLowerCase()] -= 1;
+            continue;
+        }
+    }
+
+    for (let i = 0; i < myStrWord.length; i++) {
         if (answerWord.includes(myStrWord[i].toLowerCase())) {
+            console.log(wordCountObject);
             if (wordCountObject[myStrWord[i].toLowerCase()] > 0) {
-                wordCountObject[myStrWord[i].toLowerCase()] -= 1;
                 currTryBlock.children[i].style.backgroundColor = 'goldenrod';
-                if (answerWord[i] === myStrWord[i].toLowerCase()) {
-                    currTryBlock.children[i].style.backgroundColor = 'darkgreen';
-                }
+                wordCountObject[myStrWord[i].toLowerCase()] -= 1;
             }
         }
     }
+
     if (winCondition()) {
         const title = document.querySelector('.title');
         title.innerText = 'You Win!';
